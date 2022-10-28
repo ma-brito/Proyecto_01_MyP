@@ -33,36 +33,45 @@ public class Tienda{
 		return idioma.oferta();
 	}
 
+	public String seleccion(){
+		return idioma.seleccion();
+	}
+
+	public String opcionesCompra(){
+		return idioma.opcionesCompra();
+	}
+
     
 	public static void main(String[] args){
 		Scanner sc = new Scanner(System.in);
 		int opcion;
 		Tienda tienda = new Tienda();
         ArrayList<Cliente> clientes = new ArrayList<Cliente>();
-        Cliente cliente1 = new Cliente("julio.g", "calaverita1", "Julio García", "34661102741",  "Avenida Cadena, 2, 6º A, C.P:435768", 1887, 2, 3345);
-        Cliente cliente2 = new Cliente("jose.m", "remi88", "Jose Martinez", "5567453856",  "Calle Aljibe #12-4, C.P:5834950", 9965, 1, 5576);
-        Cliente cliente3 = new Cliente("maria.p", "nacional4tri", "Maria Perez", "557834647328",  " 1980 Fairfax Drive, Bayville, Z.C:08762", 5544, 3,9465);
+        Cliente cliente1 = new Cliente("julio.g", "calaverita1", "Julio García", "34661102741",  "Avenida Cadena, 2, 6º A, C.P:435768", 1887, 2, 3345, 500000.00);
+        Cliente cliente2 = new Cliente("jose.m", "remi88", "Jose Martinez", "5567453856",  "Calle Aljibe #12-4, C.P:5834950", 9965, 1, 5576,2800.00);
+        Cliente cliente3 = new Cliente("maria.p", "nacional4tri", "Maria Perez", "557834647328",  " 1980 Fairfax Drive, Bayville, Z.C:08762", 5544, 3,9465, 3000.00);
+		clientes.add(cliente1);
+		clientes.add(cliente2);
+		clientes.add(cliente3);
 		System.out.println("***BIENVENIDO A CHEEMSMART***");
         System.out.println("Por favor, ingrese su nombre de usuario:");
         String usuario = sc.nextLine();
-        System.out.println("Por favor, ingrese su contraseña:");
-        String contraseña = sc.nextLine();
+        System.out.println("Por favor, ingrese su contrasena:");
+        String contrasena = sc.nextLine();
 
         for(int i=0; i< clientes.size(); i++){
-            if(clientes.get(i).getUsuario().equals(usuario) && clientes.get(i).getContraseña().equals(contraseña)){
+            if(clientes.get(i).getUsuario().equals(usuario) && clientes.get(i).getContrasena().equals(contrasena)){
                 Cliente seleccionado = clientes.get(i);
 				if(seleccionado.getPais()==1)
 				tienda.transformarcion(new Latino());
 				else if(seleccionado.getPais()==3)
 				tienda.transformarcion(new Ingles());
 				else if(seleccionado.getPais()==2)
-				tienda.transformarcion(new España());
+				tienda.transformarcion(new Espana());
 
 				System.out.println(tienda.saludar());
 				System.out.println(tienda.menu());
-
 				do{
-					
 		
 						while (true){
 							try {
@@ -76,62 +85,100 @@ public class Tienda{
 						}
 		
                 opcion = sc.nextInt();
+				GrupoProducto grupo = new GrupoProducto();
                 switch(opcion){
                     case 1:
-                        
+						Iterator iterador = grupo.getIterator();
+						while(iterador.hasNext()){
+							Producto producto = (Producto)iterador.next();
+							System.out.println(producto.getNombre());
+							System.out.println(producto.getPrecio());
+							System.out.println(producto.getCodigoBarras());
+						}
+						break;
                     case 2:
-                        System.out.println(clientes.get(i).getCarrito().toString());
-                        break;
-                    case 3:
-                        System.out.println(clientes.get(i).getCompras().toString());
-                        break;
-                    case 4:
-                        System.out.println("Gracias por su visita");
-                        break;
+					ArrayList<Producto> carrito = new ArrayList<Producto>();
+					Iterator iteradorDos = grupo.getIterator();
+					int contador = 1;
+					while(iteradorDos.hasNext()){
+						Producto producto = (Producto)iteradorDos.next();
+						System.out.println(contador + " )");
+						System.out.println(producto.getNombre());
+						System.out.println(producto.getPrecio());
+						System.out.println(producto.getCodigoBarras());
+						contador++;
+					}
+
+					do{
+						System.out.println(tienda.opcionesCompra());
+			
+							while (true){
+								try {
+									String opcionUsuario = sc.nextLine();
+									opcion = Integer.parseInt(opcionUsuario);
+									break;
+								}catch (NumberFormatException ex){
+									System.out.println(tienda.opcionesCompra());
+									
+								}
+							}
+			
+							switch(opcion){
+								case 1:
+								tienda.seleccion();
+								int seleccion = sc.nextInt();
+								carrito.add(grupo.getProducto(seleccion));
+									break;
+			
+								case 2:
+								System.out.println("Por favor ingresa tu número de cuenta");
+								ClienteProxy proxy = new ClienteProxy(seleccionado);
+								double monto = 0;
+
+								for(int j=0; j<carrito.size(); j++){
+									monto += carrito.get(j).getPrecio();
+								}
+								while (true){
+									try {
+										String cuenta = sc.nextLine();
+										opcion = Integer.parseInt(cuenta);
+										break;
+									}catch (NumberFormatException ex){
+										System.out.println("Por favor, ingrese un numero");
+									}
+								}
+								if(proxy.getCuenta()==opcion){
+									proxy.realizarCompra(monto);
+									proxy.actualizarEnReales();
+								}else{
+									System.out.println("El número de cuenta no coincide");
+									System.exit(0);
+								}
+
+									break;
+									
+								case 0:
+									break;
+			
+								default:
+									System.out.println("\nPor favor elige la opcion que deseas ejecutar.");
+									break;
+			
+							}
+			
+					}while(opcion != 3);
+					
+
+					break;
                     default:
                         System.out.println("Opción no válida");
                         break;
                 }
-            }
-        }
-        }
-
-		
-				switch(opcion){
-					case 1:
-						mechaCheems.activar();
-						break;
-
-					case 2:
-						mechaCheems.caminar();
-						break;
-
-					case 3:
-						mechaCheems.cocinar();
-						break;
-
-					case 4:
-						mechaCheems.servir();
-						break;
-
-					case 5:
-						mechaCheems.suspender();
-						break;
-
-					case 6:
-						mechaCheems.atender();
-						break;
-						
-					case 0:
-						break;
-
-					default:
-						System.out.println("\nPor favor elige la opcion que deseas ejecutar.");
-						break;
-
-				}
-
-		}while(opcion != 0);
+            }while(opcion != 3);
+			}else{
+				System.out.println("El usuario o la contraseña no existe");
+			}
+		}
 
 	}
 }

@@ -49,6 +49,13 @@ public class Producto{
             return departamento;
         }
         
+        /**
+         * @return el nombre del producto
+         */
+        public String getNombre(){
+            return nombre;
+        }
 
+        
 
 }

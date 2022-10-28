@@ -1,17 +1,18 @@
 public class Cliente{
 private String usuario;
-private String contraseña;
+private String contrasena;
 private String nombre;
 private String telefono;
 private String direccion;
 private int cuenta;
 private int pais;
 private int id;
+private double saldo;
 
 /**
  * Constructor de la clase Cliente
  * @param usuario
- * @param contraseña
+ * @param contrasena
  * @param nombre
  * @param telefono
  * @param direccion
@@ -19,9 +20,10 @@ private int id;
  * @param pais
  * @param id
  */
-public Cliente(String usuario, String contraseña, String nombre, String telefono, String direccion, int cuenta, int pais, int id){
+public Cliente(String usuario, String contrasena, String nombre, String telefono, String direccion, int cuenta, int pais, int id, double saldo){
+    this.saldo = saldo;
     this.usuario = usuario;
-    this.contraseña = contraseña;
+    this.contrasena = contrasena;
     this.nombre = nombre;
     this.telefono = telefono;
     this.direccion = direccion;
@@ -38,10 +40,10 @@ public String getUsuario(){
 }
 
 /**
- * @return la contraseña del cliente
+ * @return la contrasena del cliente
  */
-public String getContraseña(){
-    return contraseña;
+public String getContrasena(){
+    return contrasena;
 }
 
 /**
@@ -91,7 +93,14 @@ public int getId(){
  */
 public String toString(){
     return ("***CLIENTE*** Usuario: " + usuario +
-        " \nContraseña: " + contraseña  + "\nNombre: " + nombre + "\nTelefono: " + telefono + "\nDireccion: " + direccion + "\nCuenta: " + cuenta + "\nPais: " + pais + "\nId: " + id);
+        " \nContrasena: " + contrasena  + "\nNombre: " + nombre + "\nTelefono: " + telefono + "\nDireccion: " + direccion + "\nCuenta: " + cuenta + "\nPais: " + pais + "\nId: " + id);
+}
+
+public void completarCompra(double precio){
+    //simulando un sistema seguro.
+    System.out.println("***VERIFICANDO DATOS...***" + 
+                        "\n***DATOS VERIFICADOS...***");
+    saldo =- precio;
 }
     
     }

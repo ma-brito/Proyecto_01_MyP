@@ -1,6 +1,5 @@
 import java.time.LocalDate;
-import java.util.*;
-public class España implements Idioma {
+public class Espana implements Idioma {
     /**
      * Saluda al usuario
      * @return saludo en el idioma
@@ -45,7 +44,22 @@ public class España implements Idioma {
      * @return oferta
      */
     public String oferta(){
-        return "Venga ya! Tenemos una oferta especial para ti!\n";
+        return "Bravo! Tenemos una oferta especial para ti!\n";
     }
-    
+
+
+    /**
+     * Muestra un mensaje de seleccion
+     * @return mensaje de seleccion
+     */
+    public String seleccion(){
+        return "Chaval, selecciona el producto que deseas comprar:";
+    }
+/**
+     * Muestra un mensaje de opciones de compra
+     * @return mensaje de opciones de compra
+     */
+    public String opcionesCompra() {
+        return "¿Qué deseas hacer?:\n1. Agregar un producto al carrito \n2. Relizar una compra\n3. Salir";
+    }
 }

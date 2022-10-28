@@ -33,5 +33,17 @@ public interface Idioma {
      * @return oferta
      */
     public String oferta();
+
+    /**
+     * Muestra un mensaje de seleccion
+     * @return mensaje de seleccion
+     */
+    public String seleccion();
+
+    /**
+     * Muestra un mensaje de opciones de compra
+     * @return mensaje de opciones de compra
+     */
+    public String opcionesCompra();
     
 }

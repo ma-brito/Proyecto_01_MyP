@@ -40,6 +40,14 @@ public class Ingles implements Idioma{
     }
 
     /**
+     * Muestra un mensaje de seleccion
+     * @return mensaje de seleccion
+     */
+    public String seleccion(){
+        return "Please select the item you'd like to buy:";
+    }
+
+    /**
      * Muestra un mensaje de oferta
      * @return oferta
      */
@@ -47,4 +55,11 @@ public class Ingles implements Idioma{
         return "We have a special offer for you!\n";
     }
   
+    /**
+     * Muestra un mensaje de opciones de compra
+     * @return mensaje de opciones de compra
+     */
+    public String opcionesCompra(){
+        return "Select an option:\n1. Add to cart \n2. Buy cart\n3. Exit";
+    }
 }

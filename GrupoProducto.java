@@ -37,4 +37,8 @@ public class GrupoProducto{
 	public Iterator getIterator(){
 		return Productos.iterator();
 	}
+
+	public Producto getProducto(int i){
+		return Productos.get(i);
+	}
 }
