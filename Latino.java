@@ -64,4 +64,62 @@ public class Latino implements Idioma {
     public String opcionesCompra() {
         return "¿Qué deseas hacer?:\n1. Agregar artículo a carrito \n2. Relizar la compra del carrito\n3. Salir";
     }
+
+     /**
+     * Muestra una cadena de error por excepción Number exception
+     * @return cadena de error
+     */
+    public String numberException(){
+        return "Por favor ingresa un número";
+    }
+
+    /**
+     * Muestra un mensaje de agregar al carrito
+     * @return mensaje de agregar al carrito
+     */
+    public String agregadoCarrito(){
+        return "Ya casi es tuyo! Agregado al carrito";
+    }
+
+    /**
+     * Muestra un mensaje de error por número no válido
+     * @return mensaje de error por número no válido
+     */
+    public String noValido(){
+        return "Chin! Por favor ingresa un numero valido";
+    }
+
+    /**
+     * Muestra un mensaje de verificación de ceunta
+     * @return mensaje de verificación de ceunta
+     */
+    public String verificacion(){
+        return "***PASANDO A MODO SEGURO***\nVerificando cuenta...\nPor favor ingresa tu numero de cuenta:";
+    }
+
+    /**
+     * Muestra mensaje de saldo insuficiente
+     * @return mensaje de saldo insuficiente
+     */
+    public String saldoInsuficiente(){
+        return "Chale! No tienes suficiente dinero en tu cuenta";
+    }
+
+    /**
+     * Muestra mensaje de cuenta rechazada
+     * @return mensaje de cuenta rechazada
+     */
+    public String cuentaRechazada(){
+        return "Vaya, vaya, ese no es el numero de cuenta correcta. Adios";
+    }
+
+
+    /**
+     * Muestra mensaje de ticket
+     * @return mensaje deticket
+     */
+    public String ticket(){
+        return "Aquí tienes tu ticket:";
+    }
+
 }

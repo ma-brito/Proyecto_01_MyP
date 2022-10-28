@@ -96,11 +96,19 @@ public String toString(){
         " \nContrasena: " + contrasena  + "\nNombre: " + nombre + "\nTelefono: " + telefono + "\nDireccion: " + direccion + "\nCuenta: " + cuenta + "\nPais: " + pais + "\nId: " + id);
 }
 
-public void completarCompra(double precio){
+public boolean completarCompra(double precio){
     //simulando un sistema seguro.
     System.out.println("***VERIFICANDO DATOS...***" + 
                         "\n***DATOS VERIFICADOS...***");
-    saldo =- precio;
+                        System.out.println("a");
+    if(saldo >= precio){
+        saldo -= precio;
+        System.out.println("***COMPRA COMPLETADA***");
+        return true;
+    }else{
+        System.out.println("***SALDO INSUFICIENTE***");
+        return false;
+    }
 }
     
     }

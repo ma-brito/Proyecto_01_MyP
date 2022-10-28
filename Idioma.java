@@ -46,4 +46,46 @@ public interface Idioma {
      */
     public String opcionesCompra();
     
+    /**
+     * Muestra una cadena de error por excepción Number exception
+     * @return cadena de error
+     */
+    public String numberException();
+
+    /**
+     * Muestra un mensaje de agregar al carrito
+     * @return mensaje de agregar al carrito
+     */
+    public String agregadoCarrito();
+
+    /**
+     * Muestra un mensaje de error por número no válido
+     * @return mensaje de error por número no válido
+     */
+    public String noValido();
+
+    /**
+     * Muestra un mensaje de verificación de ceunta
+     * @return mensaje de verificación de ceunta
+     */
+    public String verificacion();
+
+    /**
+     * Muestra mensaje de saldo insuficiente
+     * @return mensaje de saldo insuficiente
+     */
+    public String saldoInsuficiente();
+
+    /**
+     * Muestra mensaje de cuenta rechazada
+     * @return mensaje de cuenta rechazada
+     */
+    public String cuentaRechazada();
+
+     /**
+     * Muestra mensaje de ticket
+     * @return mensaje de ticket
+     */
+    public String ticket();
+
 }

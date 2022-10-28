@@ -35,6 +35,19 @@ public class Producto{
             return precio;
         }
 
+        public double getPrecioDescuento(int i){
+            if(i==1){
+                return precio*0.9;
+            }
+            else if(i==2){
+                return precio*0.8;
+            }
+            else if(i==3){
+                return precio*0.7;
+            }
+            return precio;
+        }
+
         /**
          * @return el nombre del producto
          */
@@ -56,6 +69,6 @@ public class Producto{
             return nombre;
         }
 
-        
+
 
 }

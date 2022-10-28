@@ -12,8 +12,8 @@ public class ClienteProxy implements Serializable, InterfazCliente{
 		this.monto = monto;
 	}
 
-	public void actualizarEnReales(){
-		clienteReal.completarCompra(monto);
+	public boolean actualizarEnReales(){
+		return clienteReal.completarCompra(monto);
 	}
 
 	public int getCuenta(){
