@@ -70,9 +70,9 @@ public class Tienda{
 				tienda.transformarcion(new Espana());
 
 				System.out.println(tienda.saludar());
-				System.out.println(tienda.menu());
+				
 				do{
-		
+					System.out.println(tienda.menu());
 						while (true){
 							try {
 								String opcionUsuario = sc.nextLine();
@@ -84,16 +84,19 @@ public class Tienda{
 							}
 						}
 		
-                opcion = sc.nextInt();
+                
 				GrupoProducto grupo = new GrupoProducto();
                 switch(opcion){
                     case 1:
 						Iterator iterador = grupo.getIterator();
+						int contador1=1;
 						while(iterador.hasNext()){
+							System.out.println(contador1 + " )");
 							Producto producto = (Producto)iterador.next();
 							System.out.println(producto.getNombre());
 							System.out.println(producto.getPrecio());
 							System.out.println(producto.getCodigoBarras());
+							contador1++;
 						}
 						break;
                     case 2:
@@ -125,12 +128,23 @@ public class Tienda{
 			
 							switch(opcion){
 								case 1:
-								tienda.seleccion();
-								int seleccion = sc.nextInt();
-								carrito.add(grupo.getProducto(seleccion));
-									break;
+								int seleccion = 0;
+								do{
+									System.out.println(tienda.seleccion()); 
+								seleccion = sc.nextInt();
+								if(seleccion >0 && seleccion<grupo.getTamano()){
+									carrito.add(grupo.getProducto(seleccion-1));
+									System.out.println("Producto agregado al carrito");
 			
+								}
+								else{
+									System.out.println("Por favor, ingrese un numero valido");
+								}
+								System.out.println(carrito);
+							}while(seleccion <0 && seleccion>grupo.getTamano()+1);
+								break;
 								case 2:
+								System.out.println("****Pasando a verificación segura****");
 								System.out.println("Por favor ingresa tu número de cuenta");
 								ClienteProxy proxy = new ClienteProxy(seleccionado);
 								double monto = 0;
@@ -157,7 +171,8 @@ public class Tienda{
 
 									break;
 									
-								case 0:
+								case 3:
+									tienda.despedirse();
 									break;
 			
 								default:
@@ -173,6 +188,10 @@ public class Tienda{
                     default:
                         System.out.println("Opción no válida");
                         break;
+					case 3:
+					tienda.despedirse();
+					System.exit(0);
+					break;
                 }
             }while(opcion != 3);
 			}else{

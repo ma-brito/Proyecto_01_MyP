@@ -62,6 +62,6 @@ public class Latino implements Idioma {
      * @return mensaje de opciones de compra
      */
     public String opcionesCompra() {
-        return "¿Qué deseas hacer?:\n1. Ver catálogo \n2. Relizar una compra\n3. Salir";
+        return "¿Qué deseas hacer?:\n1. Agregar artículo a carrito \n2. Relizar la compra del carrito\n3. Salir";
     }
 }

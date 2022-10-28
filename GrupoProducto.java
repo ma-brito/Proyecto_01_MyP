@@ -41,4 +41,8 @@ public class GrupoProducto{
 	public Producto getProducto(int i){
 		return Productos.get(i);
 	}
+
+	public int getTamano(){
+		return Productos.size();
+	}
 }
