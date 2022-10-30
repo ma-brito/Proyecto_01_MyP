@@ -53,7 +53,7 @@ public class Espana implements Idioma {
      * @return mensaje de seleccion
      */
     public String seleccion(){
-        return "Chaval, selecciona el producto que deseas comprar:";
+        return "Chaval, selecciona el número en el catálogo del producto que deseas comprar:";
     }
 /**
      * Muestra un mensaje de opciones de compra
@@ -112,11 +112,20 @@ public class Espana implements Idioma {
     }
 
     /**
-     * Muestra mensaje de compra exitosa
-     * @return mensaje de compra exitosa
+     * Muestra mensaje de ticket
+     * @return mensaje de ticket
      */
     public String ticket(){
-        return "Compra exitosa. Aquí esta tu ticket:";
+        return "Compra exitosa. Aqui esta tu ticket:";
     }
+
+     /**
+     * Muestra mensaje de total de compra
+     * @return mensaje de total de compra
+     */
+    public String total(){
+        return "El total es: ";
+    }
+
 
 }

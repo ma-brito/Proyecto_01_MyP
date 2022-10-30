@@ -44,7 +44,7 @@ public class Ingles implements Idioma{
      * @return mensaje de seleccion
      */
     public String seleccion(){
-        return "Please select the item you'd like to buy:";
+        return "Please select the number in the catalog of the item that you'd like to buy";	
     }
 
     /**
@@ -117,6 +117,14 @@ public class Ingles implements Idioma{
      */
     public String ticket(){
         return "Here is your ticket, thank you for your purchase";
+    }
+
+     /**
+     * Muestra mensaje de total de compra
+     * @return mensaje de total de compra
+     */
+    public String total(){
+        return "Your total is: ";
     }
 
 }

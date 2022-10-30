@@ -88,4 +88,10 @@ public interface Idioma {
      */
     public String ticket();
 
+    /**
+     * Muestra total de la compra
+     * @return total de compra
+     */
+    public String total();
+
 }

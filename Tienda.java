@@ -69,6 +69,10 @@ public class Tienda{
 	public String ticket(){
 		return idioma.ticket();
 	}
+
+	public String total(){
+		return idioma.total();
+	}
     
 	public static void main(String[] args){
 		Scanner sc = new Scanner(System.in);
@@ -76,8 +80,8 @@ public class Tienda{
 		Tienda tienda = new Tienda();
         ArrayList<Cliente> clientes = new ArrayList<Cliente>();
         Cliente cliente1 = new Cliente("julio.g", "calaverita1", "Julio García", "34661102741",  "Avenida Cadena, 2, 6º A, C.P:435768", 1887, 2, 3345, 500000.00);
-        Cliente cliente2 = new Cliente("a", "b", "Jose Martinez", "5567453856",  "Calle Aljibe #12-4, C.P:5834950", 1, 1, 5576,2800.00);
-        Cliente cliente3 = new Cliente("maria.p", "nacional4tri", "Maria Perez", "557834647328",  " 1980 Fairfax Drive, Bayville, Z.C:08762", 5544, 3,9465, 3000.00);
+        Cliente cliente2 = new Cliente("jose.m", "remi88", "Jose Martinez", "5567453856",  "Calle Aljibe #12-4, C.P:5834950", 9586, 1, 5576,2800.00);
+        Cliente cliente3 = new Cliente("mary.p", "nacional4tri", "Maria Perez", "557834647328",  " 1980 Fairfax Drive, Bayville, Z.C:08762", 5544, 3,9465, 3000.00);
 		clientes.add(cliente1);
 		clientes.add(cliente2);
 		clientes.add(cliente3);
@@ -182,7 +186,6 @@ public class Tienda{
 								else{
 									tienda.noValido();
 								}
-								System.out.println(carrito);
 							}while(seleccion <0 && seleccion>grupo.getTamano()+1);
 								break;
 								case 2:
@@ -220,17 +223,22 @@ public class Tienda{
 										System.out.println( tienda.saldoInsuficiente());
 									}
 									System.out.println(tienda.ticket());
+									double total = 0;
 									for(int o=0; o<carrito.size(); o++){
+
 										System.out.println(carrito.get(o).getNombre());
 										if(carrito.get(o).getDepartamento() == seleccionado.getPais()){
 											double precioDescuento= carrito.get(o).getPrecioDescuento(carrito.get(o).getDepartamento());
 											System.out.println(tienda.oferta() + precioDescuento);
+											total = total + precioDescuento;
 										}
 										else{
 											System.out.println(carrito.get(o).getPrecio());
+											total = total + carrito.get(o).getPrecio();
 										}
-										System.out.println(carrito.get(o).getCodigoBarras());
+										// System.out.println(carrito.get(o).getCodigoBarras());
 									}
+									System.out.println(tienda.total() + total);
 									System.out.println(tienda.despedirse()); 
 									System.exit(0);
 								}else{

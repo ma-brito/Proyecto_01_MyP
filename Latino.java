@@ -55,7 +55,7 @@ public class Latino implements Idioma {
      * @return mensaje de seleccion
      */
     public String seleccion() {
-        return "Por favor selecciona el producto que deseas comprar:";
+        return "Por favor selecciona el numero en el catálogo del producto que deseas comprar";
     }
     /**
      * Muestra un mensaje de opciones de compra
@@ -119,7 +119,15 @@ public class Latino implements Idioma {
      * @return mensaje deticket
      */
     public String ticket(){
-        return "Aquí tienes tu ticket:";
+        return "Aqui tienes tu ticket:";
+    }
+
+    /**
+     * Muestra mensaje de total de compra
+     * @return mensaje de total de compra
+     */
+    public String total(){
+        return "El total es: ";
     }
 
 }
